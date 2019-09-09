@@ -8,7 +8,7 @@ ENV["SCHOOL_ENV"] ||= "development"
 
 DBRegistry[ENV["SCHOOL_ENV"]].connect!
 DB = ActiveRecord::Base.connection
-
+ActiveRecord::Base.logger = nil
 if ENV["SCHOOL_ENV"] == "test"
   ActiveRecord::Migration.verbose = false
 end
